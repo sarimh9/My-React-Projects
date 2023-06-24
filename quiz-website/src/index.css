@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/** ==================== APP ==================== */
+.app {
+  display: flex;
+  flex-direction: row;
+}
+/* ==================== Main Component ==================== */
+.main {
+  width: 70%;
+  height: 100vh;
+  position: relative;
+  background-image: url(Assets/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.q-a-box {
+  position: absolute;
+  width: 100%;
+  bottom: 15px;
+}
+.question {
+  padding: 60px 70px !important;
+  font-size: 24px;
+  margin: -30px 0;
+}
+.options {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+}
+.box-style-1 {
+  clip-path: polygon(10% 30%, 90% 30%, 100% 50%, 90% 70%, 10% 70%, 0% 50%);
+  border: 2px solid white;
+  display: grid;
+  place-items: center;
+  padding: 50px 40px;
+  background-color: #100241;
+  color: white;
+}
+.option {
+  background-color: #100241;
+  margin-right: 40px;
+  margin: -20px 40px;
+}
+.option:hover {
+  color: white;
+  cursor: pointer;
+  background-color: darkblue;
+}
+.timer-box {
+  margin-left: 40px;
+}
+/* ==================== Sidebar Component ==================== */
+.sidebar {
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: #100241;
+  border-left: 2px solid white;
+}
+.levelEntry {
+  margin: 10px;
+  padding-left: 10%;
+  border-radius: 8px;
+  color: white;
+}
+.active {
+  background-color: teal;
+  color: black;
+}
+
+/* ==================== Timer Component ==================== */
+.timer {
+  background-color: #100241;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  height: 100px;
+  width: 100px;
+  display: grid;
+  place-content: center;
+  border-radius: 100%;
+  border: 4px solid white;
+  padding: 30px;
+}
+.timer-ended {
+  background-color: red;
+}
