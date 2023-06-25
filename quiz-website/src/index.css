@@ -67,6 +67,36 @@ code {
 .timer-box {
   margin-left: 40px;
 }
+
+@keyframes blink {
+  0% {
+    background-color: green;
+  }
+  50% {
+    background-color: #100241;
+  }
+  100% {
+    background-color: green;
+  }
+}
+.blink-animation {
+  animation: blink 2s;
+}
+
+@keyframes blinkwrong {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: #100241;
+  }
+  100% {
+    background-color: red;
+  }
+}
+.blinkwrong-animation {
+  animation: blinkwrong 2s;
+}
 /* ==================== Sidebar Component ==================== */
 .sidebar {
   width: 30%;

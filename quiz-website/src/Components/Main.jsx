@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useSound from "use-sound";
 import correct from "../Sounds/correct.mp3";
 import wrong from "../Sounds/wrong.mp3";
@@ -29,8 +29,7 @@ export default function Main({
   setLevel,
   level,
 }) {
-  // const [timerTime, setTimerTime] = useState(30);
-  const [dataToPass, setDataToPass] = useState(level);
+  const [showTimer, setShowTimer] = useState(true);
   const navigate = useNavigate();
   let tempArr = [...incorrectOptions, correctOption];
   // let optionArr = shuffle(tempArr);
@@ -39,25 +38,37 @@ export default function Main({
   const [playWrongSound, { stop: stopWrongSound }] = useSound(wrong);
   const [playPlaySound, { stop: stopPlaySound }] = useSound(play);
 
+  useEffect(() => {
+    playPlaySound();
+    setTimeout(() => {
+      stopPlaySound();
+    }, 5000);
+  }, [level]);
+
   function checkAnswer(e) {
     let correctAns = e.target.textContent;
     if (correctAns == correctOption) {
+      setShowTimer(false);
       playCorrectSound();
       e.target.style.backgroundColor = "green";
+      e.target.classList.add("blink-animation");
+
       setTimeout(() => {
         setLevel((prevLevel) => prevLevel + 1);
         e.target.style.backgroundColor = "";
+        e.target.classList.remove("blink-animation");
         stopCorrectSound();
+        setShowTimer(true);
       }, 4000);
-      // setTimerTime(50);
-      // console.log("setTimerTime called");
     } else {
       playWrongSound();
       e.target.style.backgroundColor = "red";
+      e.target.classList.add("blinkwrong-animation");
+      setShowTimer(false);
+
       setTimeout(() => {
         e.target.style.backgroundColor = "";
-        // window.location.href = `/end/${level}`;
-        // console.log(level);
+        e.target.classList.remove("blinkwrong-animation");
         navigate("/end", { state: { level } });
         stopWrongSound();
       }, 4000);
@@ -67,18 +78,11 @@ export default function Main({
     }
   }
 
-  playPlaySound();
-  setTimeout(() => {
-    stopPlaySound();
-  }, 5000);
-
   console.log("main component loaded");
   return (
     <div className="main">
       <div className="q-a-box">
-        <div className="timer-box">
-          {/* <Timer timerTime={timerTime} setTimerTime={setTimerTime} /> */}
-        </div>
+        <div className="timer-box">{showTimer && <Timer level={level} />}</div>
         <div className="question box-style-1">{question}</div>
         <div className="options">
           <div className="option box-style-1" onClick={checkAnswer}>
