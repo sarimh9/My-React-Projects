@@ -107,7 +107,7 @@ code {
   border-left: 2px solid white;
 }
 .levelEntry {
-  margin: 10px;
+  margin: 10px 10px 9px 10px;
   padding-left: 10%;
   border-radius: 8px;
   color: white;
@@ -133,4 +133,48 @@ code {
 }
 .timer-ended {
   background-color: red;
+}
+/* ==================== GameEnd.jsx ==================== */
+.game-end {
+  background-color: #100241;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.game-end > h1 {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.game-end > .game-link {
+  margin-top: -100px;
+}
+/* ==================== Extra ==================== */
+.home {
+  background-color: #100241;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.home > h1 {
+  margin-bottom: -100px;
+  color: white;
+}
+.home > .game-link {
+  margin-top: -100px;
+}
+.game-link > a {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  border: 1px solid white;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;
+}
+.game-link > a:hover {
+  background-color: white;
+  color: blue;
 }

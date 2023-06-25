@@ -25,14 +25,14 @@ export default function GameEnd(props) {
   const { level } = location.state;
 
   return (
-    <div>
-      GameEnd
-      <br />
-      <h1>You have answered {level - 1} questions. </h1>
-      <br />
-      <h1>You have won {reward[level - 1] ? reward[level - 1] : "0"} Rupees</h1>
-      <br />
-      <Link to={"/"}>Start new game</Link>
+    <div className="game-end">
+      <h1 style={{ textAlign: "center" }}>
+        You have answered {level - 1} questions, and have won{" "}
+        {reward[level - 1] ? reward[level - 1] : "0"} Rupees
+      </h1>
+      <div className="game-link">
+        <Link to={"/"}>Start new game</Link>
+      </div>
     </div>
   );
 }

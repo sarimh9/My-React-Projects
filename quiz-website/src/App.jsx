@@ -6,12 +6,21 @@ import useSound from "use-sound";
 export default function App() {
   const [playPlaySound, { stop: stopPlaySound }] = useSound(play);
 
+  function playSound() {
+    playPlaySound();
+    setTimeout(() => {
+      stopPlaySound();
+    }, 4000);
+  }
+
   return (
-    <>
+    <div className="home">
       <h1>Welcome</h1>
-      <Link to="/game" onClick={() => playPlaySound()}>
-        Play Game!
-      </Link>
-    </>
+      <div className="game-link">
+        <Link to="/game" onClick={() => playPlaySound()}>
+          Play Game!
+        </Link>
+      </div>
+    </div>
   );
 }
