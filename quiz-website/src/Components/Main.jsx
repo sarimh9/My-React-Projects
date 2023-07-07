@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import useSound from "use-sound";
 import correct from "../Sounds/correct.mp3";
 import wrong from "../Sounds/wrong.mp3";
@@ -30,10 +30,10 @@ export default function Main({
   level,
 }) {
   const [showTimer, setShowTimer] = useState(true);
+  // const [optionArr, setOptionArr] = useState([]);
   const navigate = useNavigate();
   let tempArr = [...incorrectOptions, correctOption];
-  // let optionArr = shuffle(tempArr);
-  let optionArr = tempArr;
+  let optionArr = shuffle(tempArr);
   const [playCorrectSound, { stop: stopCorrectSound }] = useSound(correct);
   const [playWrongSound, { stop: stopWrongSound }] = useSound(wrong);
   const [playPlaySound, { stop: stopPlaySound }] = useSound(play);
@@ -44,6 +44,12 @@ export default function Main({
       stopPlaySound();
     }, 5000);
   }, [level]);
+
+  // useEffect(() => {
+  //   const tempArr = [...incorrectOptions, correctOption];
+  //   const shuffledOptions = shuffle(tempArr);
+  //   setOptionArr(shuffledOptions);
+  // }, []);
 
   function checkAnswer(e) {
     let correctAns = e.target.textContent;
@@ -78,7 +84,7 @@ export default function Main({
     }
   }
 
-  console.log("main component loaded");
+  console.count("main component loaded");
   return (
     <div className="main">
       <div className="q-a-box">

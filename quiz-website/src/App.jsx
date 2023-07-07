@@ -17,7 +17,7 @@ export default function App() {
     <div className="home">
       <h1>Welcome</h1>
       <div className="game-link">
-        <Link to="/game" onClick={() => playPlaySound()}>
+        <Link to="/game" onClick={playSound}>
           Play Game!
         </Link>
       </div>

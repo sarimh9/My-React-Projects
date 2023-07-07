@@ -65,3 +65,10 @@ yarn-error.log*
 /test
 /coverage
 /.vscode
+
+features.txt
+
+# Temp 
+google-theme-portfolio
+google-theme-portfolio/
+/google-theme-portfolio

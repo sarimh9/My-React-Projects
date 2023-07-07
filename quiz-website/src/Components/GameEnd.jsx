@@ -27,8 +27,11 @@ export default function GameEnd(props) {
   return (
     <div className="game-end">
       <h1 style={{ textAlign: "center" }}>
-        You have answered {level - 1} questions, and have won{" "}
-        {reward[level - 1] ? reward[level - 1] : "0"} Rupees
+        You have answered{" "}
+        <span className="underline">{level - 1}</span>
+        {" "}questions, and have won{" "}
+        <span className="underline">{reward[level - 1] ? reward[level - 1] : "0"}</span>
+        {" "}Rupees
       </h1>
       <div className="game-link">
         <Link to={"/"}>Start new game</Link>

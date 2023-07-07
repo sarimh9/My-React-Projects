@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Timer({ timerTime = 30, level }) {
+export default function Timer({ timerTime = 300, level }) {
   const [timerEnded, setTimerEnded] = useState(false);
   const [count, setCount] = useState(timerTime);
   const navigate = useNavigate();
